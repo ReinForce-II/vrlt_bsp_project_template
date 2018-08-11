@@ -35,20 +35,20 @@ void uart_write(uint32_t data, UART_REG *reg)
         ;
     reg->DATA = data;
 }
-int32_t uart_write_try(uint32_t data, UART_REG *reg, uint32_t timeout_ms)
+int32_t uart_write_try(uint32_t data, UART_REG *reg, uint32_t timeout)
 {
-    while (timeout_ms)
+    while (timeout)
     {
         if (uart_write_availability(reg))
         {
             break;
         }
-        timeout_ms--;
+        timeout--;
         // uint64_t _tm = time();
-        // while (time() < (_tm + (uint64_t)timeout_ms * CORE_HZ / 1000))
+        // while (time() < (_tm + (uint64_t)timeout * CORE_HZ / 1000))
         //     ;
     }
-    if (timeout_ms)
+    if (timeout)
     {
         reg->DATA = data;
         return 0;
@@ -66,20 +66,20 @@ char uart_read(UART_REG *reg)
     return (char)(reg->DATA);
 }
 
-char uart_read_try(UART_REG *reg, uint32_t timeout_ms)
+char uart_read_try(UART_REG *reg, uint32_t timeout)
 {
-    while (timeout_ms)
+    while (timeout)
     {
         if (uart_read_occupancy(reg))
         {
             break;
         }
-        timeout_ms--;
+        timeout--;
         // uint64_t _tm = time();
-        // while (time() < (_tm + (uint64_t)timeout_ms * CORE_HZ / 1000))
+        // while (time() < (_tm + (uint64_t)timeout * CORE_HZ / 1000))
         //     ;
     }
-    if (timeout_ms)
+    if (timeout)
     {
         return (char)(reg->DATA);
     }

@@ -21,7 +21,7 @@ HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 
 ABI = ilp32
-ARCH = rv32i
+ARCH = rv32im
 
 C_SOURCES =  \
 $(wildcard *.c)	\

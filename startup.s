@@ -32,7 +32,7 @@ sbss_done:
     la 		t0, trap_entry
     csrw 	mtvec, t0
     csrsi   mstatus, 0x8
-    j    main
+    j    	main
 
 
 .section .text

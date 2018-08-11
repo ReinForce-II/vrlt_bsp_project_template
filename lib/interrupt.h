@@ -9,6 +9,4 @@ typedef struct
   volatile uint32_t MASKS;
 } INTERRUPT_CTRL_REG;
 
-void interrupt_ctrl_init(INTERRUPT_CTRL_REG *reg);
-
 #endif /* INTERRUPTCTRL_H_ */

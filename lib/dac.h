@@ -6,7 +6,7 @@
 
 typedef struct
 {
-    volatile uint32_t VALUE;
+    volatile uint32_t VALUE;    // 16 bit by default
 } DAC_REG;
 
 #endif // _DAC_H
