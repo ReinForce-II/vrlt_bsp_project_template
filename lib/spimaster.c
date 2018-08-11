@@ -112,7 +112,7 @@ void spi_nor_page_program(volatile uint32_t *addr, uint8_t channel, uint8_t *sta
 void spi_nor_program(volatile uint32_t *addr, uint8_t channel, uint8_t *buffer, uint8_t *start_addr, uint32_t len)
 {
     uint32_t _len = 0;
-    uint8_t _buffer[4096];
+    uint8_t *_buffer = (uint8_t *)malloc(4096);
     while (_len < len)
     {
         if (_len <= len - 4096)
